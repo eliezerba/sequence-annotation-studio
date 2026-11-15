@@ -1,0 +1,5 @@
+id,label_he,label_en,definition_he,definition_en,group,group_he,group_en,layer,parent,uri
+object,אובייקט,Object,דבר מזוהה בדימוי,A thing identified in an image,Objects,אובייקטים,Objects,visual,,https://example.org/mabat-demo/object
+fence,גדר,Fence,מבנה מפריד,A separating structure,Objects,אובייקטים,Objects,visual,object,https://example.org/mabat-demo/fence
+wire,גדר תיל,Barbed-wire fence,,,Objects,אובייקטים,Objects,visual,fence,https://example.org/mabat-demo/wire
+confinement,כליאה,Confinement,טענה פרשנית המחייבת ראיה,An interpretation requiring evidence,Meanings,משמעויות,Meanings,meaning,,https://example.org/mabat-demo/confinement

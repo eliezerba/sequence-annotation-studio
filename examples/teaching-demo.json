@@ -1,0 +1,771 @@
+{
+  "project": {
+    "format": "mabat-project",
+    "version": 1,
+    "id": "id-738cda15-7c5f-46e4-bd5e-7ec93cd1834d",
+    "name": "דוגמה לימודית · מן העמוד לדפוס",
+    "author": "דוגמה",
+    "created": "2026-11-15T06:31:28.212Z",
+    "updated": "2026-11-15T06:31:28.212Z",
+    "images": [
+      {
+        "id": "id-d3ccff03-2243-41a5-bb52-181af074cf5f",
+        "name": "teaching-page-1.svg",
+        "title": "עמוד דוגמה 1",
+        "work": "אוסף הדגמה",
+        "page": "1",
+        "width": 760,
+        "height": 960,
+        "mime": "image/svg+xml",
+        "checkedGroups": [
+          "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+          "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+          "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+          "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+          "id-614583f3-5312-439e-85e0-813cdc1ae592",
+          "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96"
+        ]
+      },
+      {
+        "id": "id-601c066f-3afe-4ce5-bcc4-dd5b95782218",
+        "name": "teaching-page-2.svg",
+        "title": "עמוד דוגמה 2",
+        "work": "אוסף הדגמה",
+        "page": "2",
+        "width": 760,
+        "height": 960,
+        "mime": "image/svg+xml",
+        "checkedGroups": [
+          "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+          "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+          "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+          "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+          "id-614583f3-5312-439e-85e0-813cdc1ae592",
+          "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96"
+        ]
+      },
+      {
+        "id": "id-d26ec3b5-e573-46c7-b9ba-ca7880ef4690",
+        "name": "teaching-page-3.svg",
+        "title": "עמוד דוגמה 3",
+        "work": "אוסף הדגמה",
+        "page": "3",
+        "width": 760,
+        "height": 960,
+        "mime": "image/svg+xml",
+        "checkedGroups": [
+          "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+          "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+          "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+          "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+          "id-614583f3-5312-439e-85e0-813cdc1ae592",
+          "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96"
+        ]
+      },
+      {
+        "id": "id-d30c221d-cbfd-46d6-a416-2644ecc8c96f",
+        "name": "teaching-page-4.svg",
+        "title": "עמוד דוגמה 4",
+        "work": "אוסף הדגמה",
+        "page": "4",
+        "width": 760,
+        "height": 960,
+        "mime": "image/svg+xml",
+        "checkedGroups": []
+      }
+    ],
+    "groups": [
+      {
+        "id": "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+        "label": "אובייקטים",
+        "layer": "visual",
+        "selection": "multiple",
+        "color": "#1d6658"
+      },
+      {
+        "id": "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+        "label": "צבעים",
+        "layer": "visual",
+        "selection": "multiple",
+        "color": "#1d6658"
+      },
+      {
+        "id": "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+        "label": "משמעויות",
+        "layer": "meaning",
+        "selection": "multiple",
+        "color": "#79619b"
+      },
+      {
+        "id": "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+        "label": "רכיבים חזותיים",
+        "layer": "visual",
+        "selection": "multiple",
+        "color": "#1d6658"
+      },
+      {
+        "id": "id-614583f3-5312-439e-85e0-813cdc1ae592",
+        "label": "אסטרטגיות ייצוג",
+        "layer": "meaning",
+        "selection": "multiple",
+        "color": "#79619b"
+      },
+      {
+        "id": "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96",
+        "label": "טענות פרשניות",
+        "layer": "meaning",
+        "selection": "multiple",
+        "color": "#79619b"
+      }
+    ],
+    "concepts": [
+      {
+        "id": "id-05200211-2cab-4c2f-842c-b1a8d892ffbc",
+        "label": "אובייקט",
+        "labels": {},
+        "definition": "קטגוריה כללית של דברים המזוהים בדימוי.",
+        "groupId": "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-aec4c093-c8be-475a-aff9-f6baefd9c00e",
+        "label": "אדם",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+        "parents": [
+          "id-05200211-2cab-4c2f-842c-b1a8d892ffbc"
+        ],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-969bf8eb-6467-418d-ad25-91d4a101bb82",
+        "label": "שולחן",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+        "parents": [
+          "id-05200211-2cab-4c2f-842c-b1a8d892ffbc"
+        ],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-9ac4320f-9a99-46c2-b1df-c26b59f1c5c1",
+        "label": "מבנה",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-b3deb370-2b99-4dce-9e0a-219996e31295",
+        "parents": [
+          "id-05200211-2cab-4c2f-842c-b1a8d892ffbc"
+        ],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-228b6671-ab58-4650-8d8c-15abbf18fb3c",
+        "label": "שחור",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-4661f58c-c3f1-4925-afcd-5c6fa48ceece",
+        "label": "לבן",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-6112329c-f10f-46cf-aa4a-64adba13ca20",
+        "label": "תכלת",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-3c9fc687-21a8-45de-8439-a92a1668f960",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-6fc82183-b4b5-498d-b6cc-585265e5f512",
+        "label": "זיכרון",
+        "labels": {},
+        "definition": "טענה פרשנית בנוגע לפעולת זיכרון; יש לעגן בראיה ולהסביר.",
+        "groupId": "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-78b2d683-474c-4b41-b759-12a919298217",
+        "label": "גבול / הפרדה",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-f7789b6d-9e89-4d08-98a4-92da4e8c46a4",
+        "label": "היעדר",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-0b25ded7-e63f-44f0-a4ba-9a885ac8f7d5",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית של מבט",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-353ba01f-c9e3-48f7-98ba-a17f1eb67136",
+        "label": "גדר",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-1901714c-fabb-498d-a504-780d61795b53",
+        "label": "גדר תיל",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+        "parents": [
+          "id-353ba01f-c9e3-48f7-98ba-a17f1eb67136"
+        ],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-8ce7d5c5-68fc-44d3-b6c2-664b633b0006",
+        "label": "רכבת",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-7844a019-34d1-489b-a9a3-1188e75172c1",
+        "label": "תצלום המשולב בעמוד",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-6371f199-6622-40b0-83b9-4cfe6cda0475",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-6f2f2797-dfaa-4fb8-81fd-f23553c35d3e",
+        "label": "מסירת עדות",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-614583f3-5312-439e-85e0-813cdc1ae592",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-bfe420e5-0d76-40be-b85c-9f676fee314a",
+        "label": "תיווך בין־דורי",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-614583f3-5312-439e-85e0-813cdc1ae592",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-bb74eba9-b1fe-452b-af35-5dcd697bfb80",
+        "label": "שימוש בחומר ארכיוני",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-614583f3-5312-439e-85e0-813cdc1ae592",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-de3d5317-9286-4ba6-a8a8-aa5aafc7f642",
+        "label": "כליאה",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      },
+      {
+        "id": "id-5fd65b20-de94-41ca-a4c1-ffd4d8f78f80",
+        "label": "שתיקה",
+        "labels": {},
+        "definition": "",
+        "groupId": "id-50c62eea-d518-4fc9-a4ac-f853ef8cdd96",
+        "parents": [],
+        "uri": "",
+        "source": "ערכה מקומית לדיון בכיתה; לא EHRI ולא תזאורוס מאומת",
+        "license": "CC0-1.0",
+        "related": []
+      }
+    ],
+    "conceptLinks": [],
+    "relationTypes": [
+      {
+        "id": "id-5fdfc058-c391-43dd-939b-e309023cb5fc",
+        "label": "בתוך",
+        "kind": "spatial",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-9e3bfa30-632e-44d1-8c6a-caa8a2f49137",
+        "label": "מעל בדף",
+        "kind": "spatial",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-a1f82b3d-cfcd-479a-aa2b-69a6f00d306e",
+        "label": "משמאל בדף",
+        "kind": "spatial",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-d48f3816-6e09-4ec3-a2db-f226ec6c7a6c",
+        "label": "לפני בסדר הקריאה",
+        "kind": "reading",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-a253e57b-e0cd-4669-8ca0-d8a408967a5e",
+        "label": "לפני בזמן הסיפור",
+        "kind": "temporal",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-e27e149e-f502-4188-b3d2-5d520528828a",
+        "label": "מייצג את",
+        "kind": "interpretive",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-df0ee150-6044-4cd7-ab84-6b7bbfbd2089",
+        "label": "מופע נוסף של אותה ישות",
+        "kind": "identity",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-e3188ffc-574b-4511-a90a-643705d1b47d",
+        "label": "תומך בטענה",
+        "kind": "evidence",
+        "from": "any",
+        "to": "any"
+      },
+      {
+        "id": "id-87e63af6-be43-4423-b978-a21aec0472ff",
+        "label": "סותר את",
+        "kind": "interpretive",
+        "from": "any",
+        "to": "any"
+      }
+    ],
+    "annotations": [
+      {
+        "id": "id-568bd526-f6ca-4241-9194-4a193668f63f",
+        "imageId": "id-d3ccff03-2243-41a5-bb52-181af074cf5f",
+        "label": "אדם",
+        "conceptIds": [
+          "id-aec4c093-c8be-475a-aff9-f6baefd9c00e"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.21,
+              0.18
+            ],
+            [
+              0.4,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.212Z",
+        "updated": "2026-11-15T06:31:28.212Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-dcf5a3c5-e9f5-4844-ac9e-7aac5cb6e380",
+        "imageId": "id-d3ccff03-2243-41a5-bb52-181af074cf5f",
+        "label": "גדר תיל",
+        "conceptIds": [
+          "id-1901714c-fabb-498d-a504-780d61795b53"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.53,
+              0.14
+            ],
+            [
+              0.87,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.212Z",
+        "updated": "2026-11-15T06:31:28.212Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-38693785-25ef-43cc-a48e-b7a57de024cd",
+        "imageId": "id-601c066f-3afe-4ce5-bcc4-dd5b95782218",
+        "label": "אדם",
+        "conceptIds": [
+          "id-aec4c093-c8be-475a-aff9-f6baefd9c00e"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.21,
+              0.18
+            ],
+            [
+              0.4,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-ae2ff4f4-e9ea-4b55-ba5e-d9518967a7c2",
+        "imageId": "id-601c066f-3afe-4ce5-bcc4-dd5b95782218",
+        "label": "גדר תיל",
+        "conceptIds": [
+          "id-1901714c-fabb-498d-a504-780d61795b53"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.53,
+              0.14
+            ],
+            [
+              0.87,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-55ebc62d-59ef-4aac-a811-75cecac6f80c",
+        "imageId": "id-601c066f-3afe-4ce5-bcc4-dd5b95782218",
+        "label": "רכבת",
+        "conceptIds": [
+          "id-8ce7d5c5-68fc-44d3-b6c2-664b633b0006"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.22,
+              0.62
+            ],
+            [
+              0.77,
+              0.82
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": ""
+      },
+      {
+        "id": "id-5049850a-7f4b-4e1b-b1a0-37cf3cf1fafd",
+        "imageId": "id-d26ec3b5-e573-46c7-b9ba-ca7880ef4690",
+        "label": "אדם",
+        "conceptIds": [
+          "id-aec4c093-c8be-475a-aff9-f6baefd9c00e"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.21,
+              0.18
+            ],
+            [
+              0.4,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-d1388aa4-9cf1-4dcc-bf5c-8db80182d628",
+        "imageId": "id-d26ec3b5-e573-46c7-b9ba-ca7880ef4690",
+        "label": "רכבת",
+        "conceptIds": [
+          "id-8ce7d5c5-68fc-44d3-b6c2-664b633b0006"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.22,
+              0.62
+            ],
+            [
+              0.77,
+              0.82
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": ""
+      },
+      {
+        "id": "id-a201780f-c44e-42d5-b22c-ab8593a25df1",
+        "imageId": "id-d30c221d-cbfd-46d6-a416-2644ecc8c96f",
+        "label": "אדם",
+        "conceptIds": [
+          "id-aec4c093-c8be-475a-aff9-f6baefd9c00e"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.21,
+              0.18
+            ],
+            [
+              0.4,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-e10d7a9d-8fd0-492e-bbb1-b4414c13968c",
+        "imageId": "id-d30c221d-cbfd-46d6-a416-2644ecc8c96f",
+        "label": "גדר תיל",
+        "conceptIds": [
+          "id-1901714c-fabb-498d-a504-780d61795b53"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.53,
+              0.14
+            ],
+            [
+              0.87,
+              0.45
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": "סימון הדגמה"
+      },
+      {
+        "id": "id-ce501582-c2ae-4a40-a808-c7ed919edfbe",
+        "imageId": "id-d30c221d-cbfd-46d6-a416-2644ecc8c96f",
+        "label": "רכבת",
+        "conceptIds": [
+          "id-8ce7d5c5-68fc-44d3-b6c2-664b633b0006"
+        ],
+        "geometry": {
+          "type": "rect",
+          "points": [
+            [
+              0.22,
+              0.62
+            ],
+            [
+              0.77,
+              0.82
+            ]
+          ]
+        },
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z",
+        "note": ""
+      }
+    ],
+    "claims": [
+      {
+        "id": "id-512e7c1c-6de6-482e-b0d9-766c51fec1ee",
+        "text": "הגדר עשויה להדגיש כליאה",
+        "conceptIds": [
+          "id-de3d5317-9286-4ba6-a8a8-aa5aafc7f642"
+        ],
+        "evidence": [
+          "id-568bd526-f6ca-4241-9194-4a193668f63f",
+          "id-dcf5a3c5-e9f5-4844-ac9e-7aac5cb6e380"
+        ],
+        "note": "פרשנות לדוגמה בלבד; אינה טענה על חומר היסטורי.",
+        "confidence": "מוצע לדיון",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z"
+      },
+      {
+        "id": "id-c37d55ee-ca15-4a9d-8de4-832ef056260a",
+        "text": "הגדר עשויה להדגיש כליאה",
+        "conceptIds": [
+          "id-de3d5317-9286-4ba6-a8a8-aa5aafc7f642"
+        ],
+        "evidence": [
+          "id-38693785-25ef-43cc-a48e-b7a57de024cd",
+          "id-ae2ff4f4-e9ea-4b55-ba5e-d9518967a7c2"
+        ],
+        "note": "פרשנות לדוגמה בלבד; אינה טענה על חומר היסטורי.",
+        "confidence": "מוצע לדיון",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z"
+      },
+      {
+        "id": "id-b92af48f-fef3-47e6-9d39-82ab7bd60ff8",
+        "text": "הגדר עשויה להדגיש כליאה",
+        "conceptIds": [
+          "id-de3d5317-9286-4ba6-a8a8-aa5aafc7f642"
+        ],
+        "evidence": [
+          "id-a201780f-c44e-42d5-b22c-ab8593a25df1",
+          "id-e10d7a9d-8fd0-492e-bbb1-b4414c13968c"
+        ],
+        "note": "פרשנות לדוגמה בלבד; אינה טענה על חומר היסטורי.",
+        "confidence": "מוצע לדיון",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z",
+        "updated": "2026-11-15T06:31:28.213Z"
+      }
+    ],
+    "relations": [
+      {
+        "id": "id-7a0800d5-84e8-432d-bb34-a426de44b65e",
+        "source": "id-568bd526-f6ca-4241-9194-4a193668f63f",
+        "target": "id-dcf5a3c5-e9f5-4844-ac9e-7aac5cb6e380",
+        "typeId": "id-a1f82b3d-cfcd-479a-aa2b-69a6f00d306e",
+        "note": "מיקום חזותי בדימוי הסכמטי",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z"
+      },
+      {
+        "id": "id-58615f0e-ffb3-41f6-a3b6-ccea267fcf82",
+        "source": "id-38693785-25ef-43cc-a48e-b7a57de024cd",
+        "target": "id-ae2ff4f4-e9ea-4b55-ba5e-d9518967a7c2",
+        "typeId": "id-a1f82b3d-cfcd-479a-aa2b-69a6f00d306e",
+        "note": "מיקום חזותי בדימוי הסכמטי",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z"
+      },
+      {
+        "id": "id-c92f55f2-b4eb-479d-b91f-659f5720141c",
+        "source": "id-a201780f-c44e-42d5-b22c-ab8593a25df1",
+        "target": "id-e10d7a9d-8fd0-492e-bbb1-b4414c13968c",
+        "typeId": "id-a1f82b3d-cfcd-479a-aa2b-69a6f00d306e",
+        "note": "מיקום חזותי בדימוי הסכמטי",
+        "author": "דוגמה",
+        "created": "2026-11-15T06:31:28.213Z"
+      }
+    ],
+    "history": [
+      {
+        "id": "id-072ac276-b78d-47e0-8a89-25aa459058c5",
+        "time": "2026-11-15T06:31:28.213Z",
+        "author": "מבט",
+        "action": "יצירת דוגמה סכמטית"
+      }
+    ]
+  },
+  "assets": {
+    "id-d3ccff03-2243-41a5-bb52-181af074cf5f": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjAiIGhlaWdodD0iOTYwIiB2aWV3Qm94PSIwIDAgNzYwIDk2MCI+PHJlY3Qgd2lkdGg9Ijc2MCIgaGVpZ2h0PSI5NjAiIGZpbGw9IiNmYWY2ZWIiLz48dGV4dCB4PSIzODAiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmaWxsPSIjMTgzZTM4IiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+VEVBQ0hJTkcgRVhBTVBMRSDCtyAxPC90ZXh0PjxyZWN0IHg9IjQ1IiB5PSI5NSIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNkY2U1ZGYiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iNDUiIHk9IjQ5MCIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNlNGRmZDUiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMjI1IiByPSIzOCIgZmlsbD0iIzE4M2UzOCIvPjxwYXRoIGQ9Ik0yMzAgMjYzIEwyMzAgMzY1IE0yMzAgMjgwIEwxNzAgMzI1IE0yMzAgMjgwIEwyOTAgMzI1IE0yMzAgMzY1IEwxODUgNDIwIE0yMzAgMzY1IEwyNzUgNDIwIiBzdHJva2U9IiMxODNlMzgiIHN0cm9rZS13aWR0aD0iMTUiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNDQwIDE0MCBWNDMwIE00OTAgMTQwIFY0MzAgTTU0MCAxNDAgVjQzMCBNNTkwIDE0MCBWNDMwIE00MTAgMTkwIEg2NTAgTTQxMCAyNTAgSDY1MCBNNDEwIDMxMCBINjUwIE00MTAgMzcwIEg2NTAiIHN0cm9rZT0iIzVmNmQ2NiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHRleHQgeD0iMzgwIiB5PSI5MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NDc0NmMiIGZvbnQtZmFtaWx5PSJDYWxpYnJpLCBzYW5zLXNlcmlmIj5TY2hlbWF0aWMgaWxsdXN0cmF0aW9uIOKAlCBub3QgYSBoaXN0b3JpY2FsIHNvdXJjZTwvdGV4dD48L3N2Zz4=",
+    "id-601c066f-3afe-4ce5-bcc4-dd5b95782218": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjAiIGhlaWdodD0iOTYwIiB2aWV3Qm94PSIwIDAgNzYwIDk2MCI+PHJlY3Qgd2lkdGg9Ijc2MCIgaGVpZ2h0PSI5NjAiIGZpbGw9IiNmYWY2ZWIiLz48dGV4dCB4PSIzODAiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmaWxsPSIjMTgzZTM4IiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+VEVBQ0hJTkcgRVhBTVBMRSDCtyAyPC90ZXh0PjxyZWN0IHg9IjQ1IiB5PSI5NSIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNkY2U1ZGYiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iNDUiIHk9IjQ5MCIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNlNGRmZDUiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMjI1IiByPSIzOCIgZmlsbD0iIzE4M2UzOCIvPjxwYXRoIGQ9Ik0yMzAgMjYzIEwyMzAgMzY1IE0yMzAgMjgwIEwxNzAgMzI1IE0yMzAgMjgwIEwyOTAgMzI1IE0yMzAgMzY1IEwxODUgNDIwIE0yMzAgMzY1IEwyNzUgNDIwIiBzdHJva2U9IiMxODNlMzgiIHN0cm9rZS13aWR0aD0iMTUiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNDQwIDE0MCBWNDMwIE00OTAgMTQwIFY0MzAgTTU0MCAxNDAgVjQzMCBNNTkwIDE0MCBWNDMwIE00MTAgMTkwIEg2NTAgTTQxMCAyNTAgSDY1MCBNNDEwIDMxMCBINjUwIE00MTAgMzcwIEg2NTAiIHN0cm9rZT0iIzVmNmQ2NiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iMTgwIiB5PSI2MTAiIHdpZHRoPSIzOTAiIGhlaWdodD0iMTMwIiByeD0iMTAiIGZpbGw9IiM3NTg3N2MiLz48cmVjdCB4PSIyMTAiIHk9IjYzMCIgd2lkdGg9IjY1IiBoZWlnaHQ9IjQ1IiBmaWxsPSIjZmFmNmViIi8+PHJlY3QgeD0iMzAwIiB5PSI2MzAiIHdpZHRoPSI2NSIgaGVpZ2h0PSI0NSIgZmlsbD0iI2ZhZjZlYiIvPjxyZWN0IHg9IjM5MCIgeT0iNjMwIiB3aWR0aD0iNjUiIGhlaWdodD0iNDUiIGZpbGw9IiNmYWY2ZWIiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSI3NTAiIHI9IjI2IiBmaWxsPSIjMTgzZTM4Ii8+PGNpcmNsZSBjeD0iNDkwIiBjeT0iNzUwIiByPSIyNiIgZmlsbD0iIzE4M2UzOCIvPjx0ZXh0IHg9IjM4MCIgeT0iOTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE4IiBmaWxsPSIjNjQ3NDZjIiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+U2NoZW1hdGljIGlsbHVzdHJhdGlvbiDigJQgbm90IGEgaGlzdG9yaWNhbCBzb3VyY2U8L3RleHQ+PC9zdmc+",
+    "id-d26ec3b5-e573-46c7-b9ba-ca7880ef4690": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjAiIGhlaWdodD0iOTYwIiB2aWV3Qm94PSIwIDAgNzYwIDk2MCI+PHJlY3Qgd2lkdGg9Ijc2MCIgaGVpZ2h0PSI5NjAiIGZpbGw9IiNmYWY2ZWIiLz48dGV4dCB4PSIzODAiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmaWxsPSIjMTgzZTM4IiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+VEVBQ0hJTkcgRVhBTVBMRSDCtyAzPC90ZXh0PjxyZWN0IHg9IjQ1IiB5PSI5NSIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNkY2U1ZGYiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iNDUiIHk9IjQ5MCIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNlNGRmZDUiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMjI1IiByPSIzOCIgZmlsbD0iIzE4M2UzOCIvPjxwYXRoIGQ9Ik0yMzAgMjYzIEwyMzAgMzY1IE0yMzAgMjgwIEwxNzAgMzI1IE0yMzAgMjgwIEwyOTAgMzI1IE0yMzAgMzY1IEwxODUgNDIwIE0yMzAgMzY1IEwyNzUgNDIwIiBzdHJva2U9IiMxODNlMzgiIHN0cm9rZS13aWR0aD0iMTUiIGZpbGw9Im5vbmUiLz48cmVjdCB4PSIxODAiIHk9IjYxMCIgd2lkdGg9IjM5MCIgaGVpZ2h0PSIxMzAiIHJ4PSIxMCIgZmlsbD0iIzc1ODc3YyIvPjxyZWN0IHg9IjIxMCIgeT0iNjMwIiB3aWR0aD0iNjUiIGhlaWdodD0iNDUiIGZpbGw9IiNmYWY2ZWIiLz48cmVjdCB4PSIzMDAiIHk9IjYzMCIgd2lkdGg9IjY1IiBoZWlnaHQ9IjQ1IiBmaWxsPSIjZmFmNmViIi8+PHJlY3QgeD0iMzkwIiB5PSI2MzAiIHdpZHRoPSI2NSIgaGVpZ2h0PSI0NSIgZmlsbD0iI2ZhZjZlYiIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9Ijc1MCIgcj0iMjYiIGZpbGw9IiMxODNlMzgiLz48Y2lyY2xlIGN4PSI0OTAiIGN5PSI3NTAiIHI9IjI2IiBmaWxsPSIjMTgzZTM4Ii8+PHRleHQgeD0iMzgwIiB5PSI5MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NDc0NmMiIGZvbnQtZmFtaWx5PSJDYWxpYnJpLCBzYW5zLXNlcmlmIj5TY2hlbWF0aWMgaWxsdXN0cmF0aW9uIOKAlCBub3QgYSBoaXN0b3JpY2FsIHNvdXJjZTwvdGV4dD48L3N2Zz4=",
+    "id-d30c221d-cbfd-46d6-a416-2644ecc8c96f": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NjAiIGhlaWdodD0iOTYwIiB2aWV3Qm94PSIwIDAgNzYwIDk2MCI+PHJlY3Qgd2lkdGg9Ijc2MCIgaGVpZ2h0PSI5NjAiIGZpbGw9IiNmYWY2ZWIiLz48dGV4dCB4PSIzODAiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmaWxsPSIjMTgzZTM4IiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+VEVBQ0hJTkcgRVhBTVBMRSDCtyA0PC90ZXh0PjxyZWN0IHg9IjQ1IiB5PSI5NSIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNkY2U1ZGYiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iNDUiIHk9IjQ5MCIgd2lkdGg9IjY3MCIgaGVpZ2h0PSIzNjAiIGZpbGw9IiNlNGRmZDUiIHN0cm9rZT0iIzE4M2UzOCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMjMwIiBjeT0iMjI1IiByPSIzOCIgZmlsbD0iIzE4M2UzOCIvPjxwYXRoIGQ9Ik0yMzAgMjYzIEwyMzAgMzY1IE0yMzAgMjgwIEwxNzAgMzI1IE0yMzAgMjgwIEwyOTAgMzI1IE0yMzAgMzY1IEwxODUgNDIwIE0yMzAgMzY1IEwyNzUgNDIwIiBzdHJva2U9IiMxODNlMzgiIHN0cm9rZS13aWR0aD0iMTUiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNDQwIDE0MCBWNDMwIE00OTAgMTQwIFY0MzAgTTU0MCAxNDAgVjQzMCBNNTkwIDE0MCBWNDMwIE00MTAgMTkwIEg2NTAgTTQxMCAyNTAgSDY1MCBNNDEwIDMxMCBINjUwIE00MTAgMzcwIEg2NTAiIHN0cm9rZT0iIzVmNmQ2NiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHJlY3QgeD0iMTgwIiB5PSI2MTAiIHdpZHRoPSIzOTAiIGhlaWdodD0iMTMwIiByeD0iMTAiIGZpbGw9IiM3NTg3N2MiLz48cmVjdCB4PSIyMTAiIHk9IjYzMCIgd2lkdGg9IjY1IiBoZWlnaHQ9IjQ1IiBmaWxsPSIjZmFmNmViIi8+PHJlY3QgeD0iMzAwIiB5PSI2MzAiIHdpZHRoPSI2NSIgaGVpZ2h0PSI0NSIgZmlsbD0iI2ZhZjZlYiIvPjxyZWN0IHg9IjM5MCIgeT0iNjMwIiB3aWR0aD0iNjUiIGhlaWdodD0iNDUiIGZpbGw9IiNmYWY2ZWIiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSI3NTAiIHI9IjI2IiBmaWxsPSIjMTgzZTM4Ii8+PGNpcmNsZSBjeD0iNDkwIiBjeT0iNzUwIiByPSIyNiIgZmlsbD0iIzE4M2UzOCIvPjx0ZXh0IHg9IjM4MCIgeT0iOTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE4IiBmaWxsPSIjNjQ3NDZjIiBmb250LWZhbWlseT0iQ2FsaWJyaSwgc2Fucy1zZXJpZiI+U2NoZW1hdGljIGlsbHVzdHJhdGlvbiDigJQgbm90IGEgaGlzdG9yaWNhbCBzb3VyY2U8L3RleHQ+PC9zdmc+"
+  }
+}

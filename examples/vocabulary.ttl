@@ -1,0 +1,17 @@
+# Synthetic teaching SKOS example — not EHRI, Getty, CBO or ICON data.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex: <https://example.org/mabat-demo/> .
+
+ex:object a skos:Concept ;
+  skos:prefLabel "אובייקט"@he, "Object"@en ;
+  skos:definition "דבר מזוהה בדימוי."@he .
+ex:fence a skos:Concept ;
+  skos:prefLabel "גדר"@he, "Fence"@en ;
+  skos:broader ex:object .
+ex:wire a skos:Concept ;
+  skos:prefLabel "גדר תיל"@he, "Barbed wire fence"@en ;
+  skos:broader ex:fence ;
+  skos:related ex:gate .
+ex:gate a skos:Concept ;
+  skos:prefLabel "שער"@he, "Gate"@en ;
+  skos:broader ex:object .

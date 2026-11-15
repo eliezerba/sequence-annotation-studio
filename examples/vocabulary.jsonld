@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "skos":"http://www.w3.org/2004/02/skos/core#",
+    "ex":"https://example.org/mabat-demo/",
+    "label":{"@id":"skos:prefLabel","@container":"@language"},
+    "definition":{"@id":"skos:definition","@container":"@language"},
+    "broader":{"@id":"skos:broader","@type":"@id"}
+  },
+  "@graph":[
+    {"@id":"ex:object","@type":"skos:Concept","label":{"he":"אובייקט","en":"Object","fr":"Objet"}},
+    {"@id":"ex:fence","@type":"skos:Concept","label":{"he":"גדר","en":"Fence","fr":"Clôture"},"definition":{"he":"רכיב מפריד בדימוי","en":"A separating element in an image"},"broader":"ex:object"}
+  ]
+}

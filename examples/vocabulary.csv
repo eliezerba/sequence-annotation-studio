@@ -1,0 +1,8 @@
+id,label,definition,group,layer,parent,uri
+object,אובייקט,דבר מזוהה בדימוי,אובייקטים,visual,,
+person,אדם,,אובייקטים,visual,object,
+fence,גדר,,אובייקטים,visual,object,
+wire,גדר תיל,,אובייקטים,visual,fence,
+black,שחור,,צבעים,visual,,
+white,לבן,,צבעים,visual,,
+confinement,כליאה,טענה המחייבת ראיה והסבר,משמעויות,meaning,,
