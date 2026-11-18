@@ -124,6 +124,91 @@ function bindCanvas(){const svg=$('overlay');if(!svg)return;drawOverlay();const 
 function finishPolygon(){if(polygon.length<3){toast(T("למצולע דרושים שלושה קודקודים לפחות."));return;}let points=polygon.filter((p,i,a)=>!i||Math.hypot(p[0]-a[i-1][0],p[1]-a[i-1][1])>.001);if(points.length<3)return;polygon=[];drawOverlay();annotationForm(null,{type:'polygon',points});}
 async function addImages(files){const read=f=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.readAsDataURL(f);});const loaded=[];for(const file of [...files].sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true}))){if(!/^image\/(png|jpeg|webp|gif|bmp|avif)$/.test(file.type)){toast('דולג קובץ שאינו תמונה נתמכת: '+file.name);continue;}const data=await read(file);const dims=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve([im.naturalWidth,im.naturalHeight]);im.onerror=()=>reject(Error('לא ניתן לקרוא: '+file.name));im.src=data;});loaded.push({im:{id:C.uid(),name:file.name,title:file.name.replace(/\.[^.]+$/,''),work:'',page:'',width:dims[0],height:dims[1],mime:file.type,checkedGroups:[]},data});}
 if(loaded.length)mutate('הוספת '+loaded.length+' תמונות',()=>loaded.forEach(({im,data})=>{P.images.push(im);assets[im.id]=data;}));toast('נוספו '+loaded.length+' תמונות.');}
+/* ---------- PDF import: every selected page becomes one image ---------- */
+const PDF_MAX_PAGES=150,pdfWidths={small:1000,standard:1600,high:2400};
+let pdfjsPromise=null;
+function loadPdfJs(){
+  return pdfjsPromise??=(async()=>{
+    const inline=document.getElementById('mabat-pdfjs-bundle');
+    if(!window.MabatPdfJs&&inline)(0,eval)(inline.textContent);
+    if(!window.MabatPdfJs)await new Promise((resolve,reject)=>{
+      const s=document.createElement('script');s.src='vendor/pdfjs/pdfjs-bundle.js';s.onload=resolve;
+      s.onerror=()=>reject(Error(B('לא נמצא הקובץ vendor/pdfjs/pdfjs-bundle.js. ודאו שהתיקייה vendor נמצאת לצד index.html.','vendor/pdfjs/pdfjs-bundle.js was not found. Keep the vendor folder next to index.html.')));
+      document.head.appendChild(s);
+    });
+    const lib=await import(URL.createObjectURL(new Blob([window.MabatPdfJs.lib],{type:'text/javascript'})));
+    lib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([window.MabatPdfJs.worker],{type:'text/javascript'}));
+    return lib;
+  })().catch(e=>{pdfjsPromise=null;throw e;});
+}
+function parsePageRange(text,total){
+  const pages=new Set();
+  for(const part of String(text||'').split(/[,;\s]+/).filter(Boolean)){
+    const m=part.match(/^(\d+)(?:[-–](\d+))?$/);
+    if(!m)return {error:B(`טווח לא תקין: ״${part}״`,`Invalid range: “${part}”`)};
+    let a=Number(m[1]),b=m[2]?Number(m[2]):a;if(a>b)[a,b]=[b,a];
+    if(a<1||b>total)return {error:B(`מספרי העמודים חייבים להיות בין 1 ל־${total}.`,`Page numbers must be between 1 and ${total}.`)};
+    for(let n=a;n<=b;n++)pages.add(n);
+  }
+  if(!pages.size)return {error:B('לא נבחרו עמודים.','No pages selected.')};
+  if(pages.size>PDF_MAX_PAGES)return {error:B(`אפשר לייבא עד ${PDF_MAX_PAGES} עמודים בכל פעם. בחרו טווח קטן יותר וחזרו על הפעולה.`,`You can import up to ${PDF_MAX_PAGES} pages at a time. Choose a smaller range and repeat.`)};
+  return {pages:[...pages].sort((x,y)=>x-y)};
+}
+async function renderPdfPage(doc,n,width){
+  const page=await doc.getPage(n),base=page.getViewport({scale:1});
+  const scale=Math.min(width/base.width,4096/Math.max(base.width,base.height)),viewport=page.getViewport({scale});
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(viewport.width));canvas.height=Math.max(1,Math.round(viewport.height));
+  const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+  await page.render({canvasContext:ctx,canvas,viewport}).promise;
+  const result={data:canvas.toDataURL('image/jpeg',0.85),width:canvas.width,height:canvas.height};
+  canvas.width=canvas.height=0;page.cleanup();
+  return result;
+}
+async function importPdfFile(file){
+  const base=file.name.replace(/\.pdf$/i,'');
+  openDialog(`<h2>${B('טוען את ה־PDF…','Loading the PDF…')}</h2><p>${esc(file.name)}</p>`);
+  let doc;
+  try{
+    const lib=await loadPdfJs();
+    doc=await lib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+  }catch(e){
+    if($('dialog').open)closeDialog();
+    toast(e?.name==='PasswordException'?B('ה־PDF מוגן בסיסמה. הסירו את ההגנה ונסו שוב: ','The PDF is password-protected. Remove the protection and try again: ')+file.name:B('לא ניתן לקרוא את ה־PDF ','Could not read the PDF ')+file.name+' — '+(e?.message||e));
+    return;
+  }
+  const total=doc.numPages,preview=await renderPdfPage(doc,1,260).catch(()=>null);
+  const choice=await new Promise(resolve=>{
+    openDialog(`<h2>${B('ייבוא PDF כתמונות','Import a PDF as images')}</h2><div class="pdf-import">${preview?`<img src="${preview.data}" alt="" class="pdf-thumb">`:''}<div class="stack"><p><b>${esc(file.name)}</b><br>${total} ${B('עמודים. כל עמוד ייכנס כתמונה נפרדת, לפי הסדר.','pages. Each page becomes a separate image, in order.')}</p><label>${B('אילו עמודים לייבא (למשל 1-5, 8, 10-12)','Which pages to import (e.g. 1-5, 8, 10-12)')}<input id="pdfRange" dir="ltr" value="1-${Math.min(total,PDF_MAX_PAGES)}"></label><label>${B('איכות','Quality')}<select id="pdfQuality"><option value="small">${B('קטנה — רוחב 1000 פיקסלים','Small — 1000 px wide')}</option><option value="standard" selected>${B('רגילה — רוחב 1600 פיקסלים','Standard — 1600 px wide')}</option><option value="high">${B('גבוהה — רוחב 2400 פיקסלים','High — 2400 px wide')}</option></select></label><p class="small muted">${B(`עד ${PDF_MAX_PAGES} עמודים בכל ייבוא. אין זיהוי טקסט (OCR): הטקסט שבתוך ה־PDF יופיע כתמונה בלבד.`,`Up to ${PDF_MAX_PAGES} pages per import. There is no text recognition (OCR): text inside the PDF appears as part of the image only.`)}</p><p id="pdfError" class="notice" style="display:none"></p></div></div><div class="toolbar"><button id="pdfStart" class="primary">${B('ייבוא','Import')}</button><button id="pdfCancel">${B('ביטול','Cancel')}</button></div>`,()=>{
+      let settled=false;const settle=v=>{if(!settled){settled=true;resolve(v);}};
+      $('dialog').addEventListener('close',()=>settle(null),{once:true});
+      $('pdfCancel').onclick=()=>{settle(null);closeDialog();};
+      $('pdfStart').onclick=()=>{const r=parsePageRange($('pdfRange').value,total);if(r.error){$('pdfError').textContent=r.error;$('pdfError').style.display='block';return;}settle({pages:r.pages,width:pdfWidths[$('pdfQuality').value]});};
+    });
+  });
+  if(!choice){try{doc.destroy();}catch{}if($('dialog').open)closeDialog();return;}
+  let cancelled=false;const loaded=[],failed=[];
+  openDialog(`<h2>${B('מייבא עמודים…','Importing pages…')}</h2><p id="pdfProg" role="status"></p><progress id="pdfBar" max="${choice.pages.length}" value="0" style="width:100%"></progress><div class="toolbar"><button id="pdfStop">${B('עצירה (העמודים שכבר נקראו יישמרו)','Stop (pages already read are kept)')}</button></div>`,()=>{$('pdfStop').onclick=()=>{cancelled=true;};});
+  for(let k=0;k<choice.pages.length;k++){
+    if(cancelled||!$('dialog').open)break;
+    const n=choice.pages[k];
+    if($('pdfProg')){$('pdfProg').textContent=B(`עמוד ${n} (${k+1} מתוך ${choice.pages.length})`,`Page ${n} (${k+1} of ${choice.pages.length})`);$('pdfBar').value=k;}
+    try{
+      const r=await renderPdfPage(doc,n,choice.width);
+      loaded.push({im:{id:C.uid(),name:`${base}-p${String(n).padStart(3,'0')}.jpg`,title:`${base} · ${B('עמוד','p.')} ${n}`,work:base,page:String(n),width:r.width,height:r.height,mime:'image/jpeg',checkedGroups:[]},data:r.data});
+    }catch{failed.push(n);}
+    await new Promise(r=>setTimeout(r));
+  }
+  try{doc.destroy();}catch{}
+  if($('dialog').open)closeDialog();
+  if(loaded.length)mutate(B(`ייבוא ${loaded.length} עמודים מ־PDF`,`Import ${loaded.length} pages from PDF`),()=>loaded.forEach(({im,data})=>{P.images.push(im);assets[im.id]=data;}));
+  toast(B(`נוספו ${loaded.length} עמודים מ־${file.name}.`,`Added ${loaded.length} pages from ${file.name}.`)+(failed.length?B(` לא נקראו: ${failed.join(', ')}.`,` Not read: ${failed.join(', ')}.`):'')+(cancelled?B(' הייבוא נעצר.',' Import stopped.'):''));
+}
+async function addFilesFromPicker(files){
+  const all=[...files],pdfs=all.filter(f=>/\.pdf$/i.test(f.name)||f.type==='application/pdf'),images=all.filter(f=>!pdfs.includes(f));
+  if(images.length)await addImages(images);
+  for(const f of pdfs)await importPdfFile(f);
+}
+
 function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),10000);}
 function slug(){return (P.name||'mabat-project').replace(/[^\p{L}\p{N}_-]/gu,'_').slice(0,70);}
 async function exportProject(){ui.downloaded=true;try{const errors=C.validate(P,assets);if(errors.length)throw Error(errors.join('; '));const zip=new JSZip(),out=C.clone(P);delete out.catalogs;delete out.sourceConnections;for(const im of out.images){const mime=assets[im.id].slice(5,assets[im.id].indexOf(';'));const ext=({'image/jpeg':'jpg','image/svg+xml':'svg'})[mime]||mime.split('/')[1];im.assetPath='images/'+im.id+'.'+ext;zip.file(im.assetPath,assets[im.id].split(',')[1],{base64:true});}zip.file('project.json',JSON.stringify(out,null,2));zip.file('README.txt','Mabat project package v1. Open in Mabat using Open / Merge. Includes source images, adopted model terms, annotations, claims, relations and history. Ontology source files and previews are not stored in the project.\n');downloadBlob(await zip.generateAsync({type:'blob',compression:'DEFLATE'}),slug()+'.mabat.zip');toast(T("חבילת הפרויקט הוכנה להורדה."));}catch(e){toast('הייצוא נכשל: '+e.message);}}
@@ -167,7 +252,7 @@ function undo(){if(!undoStack.length)return;const prev=undoStack.pop();P=prev.p;
 $('undo').onclick=undo;$('examples').onclick=examplesDialog;$('download').onclick=exportProject;$('projectName').onchange=()=>mutate(T("שינוי שם הפרויקט"),()=>P.name=$('projectName').value.trim()||T("פרויקט חדש"));$('author').onchange=()=>{P.author=$('author').value.trim();P.updated=C.now();scheduleSave();};
 $('new').onclick=()=>openDialog(`<h2>${T("פרויקט חדש")}</h2><p>${T("הפרויקט הפעיל יוחלף בפרויקט ריק. הורידו אותו אם ברצונכם לשמור עותק נפרד.")}</p><div class="toolbar">${btn('export-project',T("הורדת הפרויקט הנוכחי"))}<button class="primary" id="confirmNew">${T("יצירת פרויקט ריק")}</button></div>`,()=>{$('confirmNew').onclick=()=>{checkpoint(T("פרויקט חדש"));P=C.fresh();assets={};sessionPacks=[];sessionConnections=[];discoveryState={domain:'',question:'',keywords:'',englishKeywords:'',results:[],errors:[],loading:false,searched:false,selected:null};ui.pack='empty';ui.packSelection=null;ui.imageId=null;ui.selected=null;ui.tab='collection';ui.work='';ui.author='';closeDialog();scheduleSave();render();};});
 $('open').onclick=()=>openDialog(`<h2>${T("פתיחה או איחוד של פרויקט")}</h2><p>${T("בחרו חבילת פרויקט שנוצרה במבט. פתיחה מחליפה את הפרויקט הפעיל; איחוד מצרף עבודה נוספת ושומר גרסאות שונות בנפרד.")}</p><div class="toolbar"><button id="chooseOpen" class="primary">${T("פתיחת פרויקט")}</button><button id="chooseMerge">${T("איחוד לתוך הפרויקט")}</button>${btn('export-project',T("גיבוי העבודה הנוכחית"))}</div>`,()=>{for(const [id,mode] of [['chooseOpen','open'],['chooseMerge','merge']])$(id).onclick=()=>{importMode=mode;closeDialog();$('projectInput').click();};});
-$('imagesInput').onchange=async()=>{try{await addImages($('imagesInput').files);}catch(e){toast(e.message);}$('imagesInput').value='';};$('projectInput').onchange=async()=>{if($('projectInput').files[0])await loadProject($('projectInput').files[0]);$('projectInput').value='';};
+$('imagesInput').onchange=async()=>{try{await addFilesFromPicker($('imagesInput').files);}catch(e){toast(e.message);}$('imagesInput').value='';};$('projectInput').onchange=async()=>{if($('projectInput').files[0])await loadProject($('projectInput').files[0]);$('projectInput').value='';};
 window.addEventListener('beforeunload',e=>{if(saveTimer||saveInFlight){e.preventDefault();e.returnValue='';}});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&saveTimer)persist();});
 // Exposed read-only snapshots for local diagnostics and regression tests.
 window.MabatDebug={snapshot:()=>({project:C.clone(P),assets:{...assets}}),validate:()=>C.validate(P,assets),flush:persist};
@@ -186,7 +271,7 @@ connections:[B('חיבור למקור מקוון','Connecting an online source')
 };return topics[topic]||topics.model;}
 function showInfo(topic){const [title,body]=helpTopic(topic);$('infoTitle').textContent=title;$('infoBody').textContent=body;$('infoClose').textContent=B('סגירה','Close');if(!$('infoDialog').open)$('infoDialog').showModal();}
 function decorateHelp(root=$('main')){const add=(el,topic)=>{if(!el||el.querySelector?.('.info-button'))return;el.insertAdjacentHTML('beforeend',infoButton(topic));};add(root.querySelector?.('h1'),ui.tab==='help'?'model':ui.tab);for(const [id,topic]of [['f-layer','model'],['f-parents','parents'],['f-confidence','confidence'],['analysisMetric','analysis'],['analysisDesc','parents']]){const el=$(id);if(el&&root.contains?.(el))add(el.closest('label')||el.parentElement,topic);}for(const legend of root.querySelectorAll?.('.bi-field legend')||[])add(legend,'bilingual');for(const h of root.querySelectorAll?.('h3')||[])if(h.textContent===T('מה נבדק?'))add(h,'review');}
-function updateChrome(){document.documentElement.lang=MabatI18n.lang;document.documentElement.dir=MabatI18n.lang==='he'?'rtl':'ltr';$('uiLanguage').textContent=B('English','עברית');$('bilingualDisplay').checked=MabatI18n.both;$('bilingualDisplayLabel').textContent=T("עברית + English");$('download').textContent=B('הורדת פרויקט','Download project');$('open').textContent=B('פתיחה / איחוד','Open / merge');$('new').textContent=B('פרויקט חדש','New project');$('examples').textContent=B('דוגמאות','Examples');$('undo').textContent=B('↶ ביטול','↶ Undo');$('undo').title=B('ביטול פעולה · Ctrl+Z','Undo · Ctrl+Z');$('author').placeholder=B('השם שלך','Your name');$('author').setAttribute?.('aria-label',B('שם המתייג','Annotator name'));for(const close of document.querySelectorAll('dialog .close'))close.setAttribute?.('aria-label',B('סגירה','Close'));$('projectNameHe').value=F(P,'name','he');$('projectNameEn').value=F(P,'name','en');const labels={collection:B('האוסף והרצף','Collection and sequence'),model:B('מושגים וקשרים','Concepts and relations'),annotate:B('תיוג ופרשנות','Annotation and interpretation'),analysis:B('קריאה מרחוק','Distant reading'),help:B('מדריך ושיטה','Guide and method')};for(const el of document.querySelectorAll('nav [data-tab]')){const number={collection:'01',model:'02',annotate:'03',analysis:'04'}[el.dataset.tab]||'';el.innerHTML=`${number} <b>${labels[el.dataset.tab]}</b>`;}const sub=document.querySelector('.brand small');if(sub)sub.textContent=B('סטודיו לתיוג, פרשנות וקריאה מרחוק · 2.0','Annotation, interpretation and distant reading · 2.0');const brand=document.querySelector('.brand strong');if(brand)brand.textContent=B('מבט','Mabat');const authorLabel=$('author')?.parentElement?.querySelector('[data-author-label]');if(authorLabel)authorLabel.textContent=B('מתייג/ת','Annotator');document.title=B('מבט · מעבדת אליהו','Mabat · e-Lijah Lab');}
+function updateChrome(){document.documentElement.lang=MabatI18n.lang;document.documentElement.dir=MabatI18n.lang==='he'?'rtl':'ltr';$('uiLanguage').textContent=B('English','עברית');$('bilingualDisplay').checked=MabatI18n.both;$('bilingualDisplayLabel').textContent=T("עברית + English");$('download').textContent=B('הורדת פרויקט','Download project');$('open').textContent=B('פתיחה / איחוד','Open / merge');$('new').textContent=B('פרויקט חדש','New project');$('examples').textContent=B('דוגמאות','Examples');$('undo').textContent=B('↶ ביטול','↶ Undo');$('undo').title=B('ביטול פעולה · Ctrl+Z','Undo · Ctrl+Z');$('author').placeholder=B('השם שלך','Your name');$('author').setAttribute?.('aria-label',B('שם המתייג','Annotator name'));for(const close of document.querySelectorAll('dialog .close'))close.setAttribute?.('aria-label',B('סגירה','Close'));$('projectNameHe').value=F(P,'name','he');$('projectNameEn').value=F(P,'name','en');const labels={collection:B('האוסף והרצף','Collection and sequence'),model:B('מושגים וקשרים','Concepts and relations'),annotate:B('תיוג ופרשנות','Annotation and interpretation'),analysis:B('קריאה מרחוק','Distant reading'),help:B('מדריך ושיטה','Guide and method')};for(const el of document.querySelectorAll('nav [data-tab]')){const number={collection:'01',model:'02',annotate:'03',analysis:'04'}[el.dataset.tab]||'';el.innerHTML=`${number} <b>${labels[el.dataset.tab]}</b>`;}const sub=document.querySelector('.brand small');if(sub)sub.textContent=B('סטודיו לתיוג, פרשנות וקריאה מרחוק · 2.1','Annotation, interpretation and distant reading · 2.1');const brand=document.querySelector('.brand strong');if(brand)brand.textContent=B('מבט','Mabat');const authorLabel=$('author')?.parentElement?.querySelector('[data-author-label]');if(authorLabel)authorLabel.textContent=B('מתייג/ת','Annotator');document.title=B('מבט · מעבדת אליהו','Mabat · e-Lijah Lab');}
 function imageMeta(im,field,label){return `<fieldset class="image-bi"><legend>${label}</legend><input data-im-field="${field}" data-im-lang="he" data-id="${im.id}" value="${esc(F(im,field,'he'))}" placeholder="${T("עברית")}" aria-label="${esc(label)} · ${T("עברית")}" dir="rtl"><input data-im-field="${field}" data-im-lang="en" data-id="${im.id}" value="${esc(F(im,field,'en'))}" placeholder="English" aria-label="${esc(label)} · English" dir="ltr"></fieldset>`;}
 function sourceConnections(){return [...sessionConnections];}
 const discoveryApis={bartoc:'https://bartoc.org/api',lov:'https://lov.linkeddata.es/dataset/lov/api/v2',ols:'https://www.ebi.ac.uk/ols4/api'};
@@ -543,7 +628,7 @@ function guideSteps(){
   return [
     {id:'images',tab:'collection',done:P.images.length>0,
       title:B('מוסיפים תמונות','Add your images'),
-      body:B('מתחילים מהחומר: מעלים את התמונות שרוצים לחקור (JPG או PNG), אפשר כמה יחד. שום תמונה לא נשלחת לשום מקום — הכול נשאר במחשב שלכם.','Start with your material: upload the images you want to study (JPG or PNG), several at once. No image is sent anywhere — everything stays on your computer.'),
+      body:B('מתחילים מהחומר: מעלים את התמונות שרוצים לחקור (JPG, PNG או PDF — כל עמוד ב־PDF הופך לתמונה), אפשר כמה יחד. שום תמונה לא נשלחת לשום מקום — הכול נשאר במחשב שלכם.','Start with your material: upload the images you want to study (JPG, PNG or PDF — each PDF page becomes an image), several at once. No image is sent anywhere — everything stays on your computer.'),
       go:B('לאוסף התמונות','Go to the collection'),alt:B('פותחים פרויקט דוגמה','Open an example project'),altAction:'show-examples'},
     {id:'vocab',tab:'model',done:P.concepts.length>0,
       title:B('בונים שפה משותפת (אוצר מושגים)','Build a shared vocabulary'),

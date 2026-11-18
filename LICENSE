@@ -22,6 +22,7 @@ SOFTWARE.
 
 ---
 This licence covers the code in this repository. Teaching materials are under
-CC BY 4.0 (see LICENSE-CONTENT.md). The vendored library vendor/jszip.min.js is
-under its own MIT licence (vendor/JSZip-LICENSE.md). The e-Lijah Lab logo
+CC BY 4.0 (see LICENSE-CONTENT.md). The vendored libraries are under their own licences:
+vendor/jszip.min.js (MIT, vendor/JSZip-LICENSE.md) and vendor/pdfjs (Apache-2.0,
+vendor/pdfjs/LICENSE). The e-Lijah Lab logo
 (assets/elijah-lab-logo.png) is not covered by either licence.

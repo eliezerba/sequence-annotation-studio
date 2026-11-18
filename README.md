@@ -1,6 +1,6 @@
 # מבט · Mabat — annotation, interpretation and distant reading
 
-**e-Lijah Lab** · version 2.0
+**e-Lijah Lab** · version 2.1
 
 סטודיו בדפדפן לתיוג תמונות, פרשנות וקריאה מרחוק, עם איתור ואימוץ של אונטולוגיות. הכול רץ במחשב שלכם: אין שרת, אין חשבון, ושום תמונה לא נשלחת החוצה.
 A browser studio for annotating images, interpreting them and reading collections at a distance, with ontology search and selective adoption. Everything runs on your computer: no server, no account, no image leaves your machine.
@@ -9,7 +9,8 @@ A browser studio for annotating images, interpreting them and reading collection
 
 - **Windows:** double-click `start-mabat.bat`.
 - **Any system:** open `index.html` in Chrome or Edge (or run `python -m http.server` in this folder and open `http://localhost:8000`).
-- Single-file build: `Mabat-standalone.html` (if included in the release).
+- Single-file build: `node tools/build-standalone.cjs` creates `dist/Mabat-standalone.html` (also attached to releases).
+- Images and **PDF files** can be added with “Add images”; each PDF page becomes an image.
 
 ## Docs
 
@@ -24,4 +25,4 @@ Mabat 2.0 replaces 1.1. The comics-and-Holocaust material of 1.1 is kept as an e
 
 ## Third-party
 
-JSZip 3.10.1 (MIT) — `vendor/JSZip-LICENSE.md`.
+JSZip 3.10.1 (MIT) — `vendor/JSZip-LICENSE.md`. PDF.js 6.2.108 (Apache-2.0) — `vendor/pdfjs/LICENSE`.

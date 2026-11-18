@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 — 2026-11-18
+- **PDF import**: each selected page becomes an image (range, quality, preview, stop, one-step undo, 150 pages per import). pdf.js 6.2.108 (Apache-2.0) is vendored in `vendor/pdfjs/` and loaded only when a PDF is imported.
+- `tools/build-standalone.cjs` builds the single-file HTML; `tools/build-pdfjs-bundle.cjs` repacks pdf.js.
+
 ## 2.0.0 — 2026-11-18
 - **Replaces 1.1.0.** The topic-specific material of 1.1 (comics and the Holocaust: teaching packs, CBO/ICON/DCMI/SKOS selections, source presets) is kept as **examples only**, in the Examples window and as an example topic in the ontology-search subject map.
 - Licences: code MIT; teaching materials CC BY 4.0 (credit to e-Lijah Lab, University of Haifa); third-party licences verified for CBO, ICON and DCMI — see `ATTRIBUTION.md`.

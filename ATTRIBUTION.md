@@ -22,6 +22,7 @@ Checked 2026-11-18 against the official sources below. No external service is co
 ## Software
 
 - JSZip 3.10.1 (MIT) — `vendor/JSZip-LICENSE.md`.
+- PDF.js 6.2.108, legacy build (Apache License 2.0), Mozilla and the PDF.js contributors — https://mozilla.github.io/pdf.js/ — `vendor/pdfjs/LICENSE`. Used to turn PDF pages into images in the browser; loaded only when a PDF is imported.
 - xml-js 1.6.11 (MIT) — development/test dependency only; not loaded by the app.
 - The e-Lijah Lab logo (`assets/elijah-lab-logo.png`) is the lab's own mark; it is not covered by the repository licences.
 

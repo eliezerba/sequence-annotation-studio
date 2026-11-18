@@ -83,3 +83,8 @@ Concepts retain `altLabels`, `mappings`, `sourceTermId`, `sourcePack`, source li
 Vocabulary JSON exchange release 2 contains `groups`, `terms` and `conceptLinks`. Relation-definition entries use `kind: "relation"` and retain their local family in `relationKind`. Import remaps all IDs transactionally and retains the typed links when their endpoints are adopted.
 
 CSV image/annotation/claim/relation tables add explicit Hebrew/English text columns; existing language maps remain JSON columns. Core geometry/counting semantics are unchanged. Merge retains nonconflicting page language entries while reporting conflicting ones.
+
+
+## Images imported from PDF
+
+Each selected PDF page is stored as an ordinary JPEG image: `name` is `<file>-pNNN.jpg`, `title` is `<file> · p. N`, `work` is the file name without extension and `page` is the source page number N. Nothing else about the PDF (text layer, metadata) is stored.

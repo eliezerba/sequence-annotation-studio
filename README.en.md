@@ -4,6 +4,10 @@
 
 On Windows, double-click `start-mabat.bat`: it starts a small local server using the built-in PowerShell (no installation) and opens Mabat at `http://localhost:8765`. Keep its window open while working. Alternatively, extract the complete ZIP and open `index.html` in a current Chrome or Edge browser. Keep all files plus `assets/` and `vendor/` together. No installation, build, API key or server is required. Static hosting is also supported. Mabat 1.0 projects remain supported; the application is separate from the older single-image tool.
 
+## New in 2.1: PDF import
+
+Upload a PDF with the “Add images” button (alone or together with ordinary images). Every selected page becomes a separate image, in order, titled like “file · p. 3”, with the source page number kept in the page field. Choose a range (e.g. `1-5, 8, 10-12`) and a quality (1000, 1600 or 2400 px wide), see a preview of the first page, stop midway (pages already read are kept) and undo the whole import in one step. Up to 150 pages per import. There is no text recognition (OCR) and password-protected files are not supported. Reading happens in the browser with Mozilla’s pdf.js (Apache 2.0); no file leaves your computer.
+
 ## Version 2.0 replaces 1.1
 
 Version 1.1 was focused on a single topic — comics and the Holocaust — with built-in term packs and ontologies. Version 2.0 is a general tool with no predefined topic. The 1.1 material is kept **as an example only**: in the Examples window and in the subject map of the ontology search (“Research topic example: comics and the Holocaust”). You may adopt terms from it or ignore it. The old version stays in the git history (tag `v1.1.0`, branch `v1`).
