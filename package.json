@@ -1,1 +1,18 @@
-{"name":"mabat-sequence-annotation-studio","version":"1.1.0","private":true,"description":"Bilingual local image annotation and ontology exploration studio","scripts":{"test":"node tests/core.test.cjs && node tests/ontology.test.cjs && node tests/integration.test.cjs"},"devDependencies":{"xml-js":"1.6.11"}}
+{
+  "name": "mabat-sequence-annotation-studio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Bilingual local image annotation, ontology discovery and distant-reading studio",
+  "scripts": {
+    "test": "node tests/core.test.cjs && node tests/ontology.test.cjs && node tests/integration.test.cjs"
+  },
+  "devDependencies": {
+    "xml-js": "1.6.11"
+  },
+  "license": "MIT",
+  "author": "e-Lijah Lab, University of Haifa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eliezerba/sequence-annotation-studio.git"
+  }
+}

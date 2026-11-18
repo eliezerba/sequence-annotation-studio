@@ -1,0 +1,35 @@
+/* Built-in Hebrew -> English glossary for translating SEARCH TERMS only (not research data).
+   General humanities / visual-studies words; extend freely. Keys are matched after removing
+   niqqud, quotation marks and common Hebrew prefixes (ה ו ב ל מ כ ש) and plural endings. */
+window.MabatGlossary={
+'אמנות':'art','אמנות חזותית':'visual arts','חומר חזותי':'visual material','אמנות עכשווית':'contemporary art','היסטוריה של האמנות':'art history',
+'תמונה':'image','צילום':'photography','ציור':'painting','רישום':'drawing','הדפס':'print','הדפסה':'printmaking','גרפיקה':'graphic arts',
+'פיסול':'sculpture','פסל':'sculpture','קרמיקה':'ceramics','אדריכלות':'architecture','בנייה':'construction','בניין':'building','עיצוב':'design',
+'איור':'illustration','מיצג':'performance art','מוזיאון':'museum','גלריה':'gallery','אוסף':'collection','תערוכה':'exhibition',
+'יצירה':'artwork','יצירת אמנות':'work of art','אמן':'artist','סגנון':'style','איקונוגרפיה':'iconography','סמל':'symbol','סמליות':'symbolism',
+'צבע':'color','קומפוזיציה':'composition','פורטרט':'portrait','דיוקן':'portrait','נוף':'landscape','טבע דומם':'still life','פסיפס':'mosaic',
+'כתב יד':'manuscript','כתב יד מאויר':'illuminated manuscript','כתבי יד':'manuscript','ספר':'book','דפוס':'printing','קליגרפיה':'calligraphy','כתב':'script',
+'כתובת':'inscription','אפיגרפיה':'epigraphy','פפירוס':'papyrus','ארכיון':'archive','ספרייה':'library','קטלוג':'catalog',
+'מטא נתונים':'metadata','אונטולוגיה':'ontology','אוצר מילים':'vocabulary','תזאורוס':'thesaurus','טקסונומיה':'taxonomy','סיווג':'classification',
+'מושג':'concept','קשר':'relation','תיוג':'annotation','פרשנות':'interpretation','ניתוח':'analysis','קריאה מרחוק':'distant reading',
+'קריאה צמודה':'close reading','הומניסטיקה דיגיטלית':'digital humanities','מדעי הרוח':'humanities','מדעי החברה':'social sciences',
+'היסטוריה':'history','ארכיאולוגיה':'archaeology','אנתרופולוגיה':'anthropology','סוציולוגיה':'sociology','פסיכולוגיה':'psychology','פילוסופיה':'philosophy',
+'דת':'religion','יהדות':'Judaism','יהודי':'Jewish','תנך':'Bible','מקרא':'Bible','נצרות':'Christianity','אסלאם':'Islam','בית כנסת':'synagogue',
+'כנסייה':'church','מסגד':'mosque','טקס':'ritual','פולחן':'worship','מוזיקה':'music','תיאטרון':'theatre','קולנוע':'film','סרט':'film',
+'ספרות':'literature','שירה':'poetry','שיר':'poem','רומן':'novel','טקסט':'text','טקסט דיגיטלי':'digital text','שפה':'language','בלשנות':'linguistics',
+'עברית':'Hebrew','ערבית':'Arabic','לטינית':'Latin','יוונית':'Greek','תרגום':'translation',
+'מרחב':'space','מרחב עירוני':'urban space','עיר':'city','ערים':'cities','עירוני':'urban','כפר':'village','אזור':'region','מפה':'map','גיאוגרפיה':'geography','גאוגרפיה':'geography',
+'מקום':'place','שמות מקומות':'place names',
+'גוף':'body','גוף האדם':'human body','מגדר':'gender','זהות':'identity','משפחה':'family','ילד':'child','חינוך':'education','למידה':'learning','הוראה':'teaching',
+'בריאות':'health','רפואה':'medicine','מחלה':'disease','טכנולוגיה':'technology','מחשב':'computer','בינה מלאכותית':'artificial intelligence',
+'נתונים':'data','מידע':'information','חומר':'material','חפץ':'object','אובייקט':'object','מורשת':'heritage','מורשת תרבותית':'cultural heritage',
+'תרבות':'culture','חברה':'society','פוליטיקה':'politics','כלכלה':'economics','משפט':'law','חוק':'law','מלחמה':'war','צבא':'military','זיכרון':'memory',
+'שואה':'Holocaust','הגירה':'migration','עיתונות':'journalism','עיתון':'newspaper','פרסומת':'advertising','פרסום':'advertising','מדיה':'media','תקשורת':'communication',
+'אופנה':'fashion','לבוש':'clothing','טקסטיל':'textile','תכשיט':'jewelry','מטבע':'coin','נומיסמטיקה':'numismatics','חותם':'seal',
+'חקלאות':'agriculture','מזון':'food','בעלי חיים':'animals','צמח':'plants','טבע':'nature','סביבה':'environment','אקלים':'climate',
+'אסטרונומיה':'astronomy','פיזיקה':'physics','כימיה':'chemistry','ביולוגיה':'biology','מתמטיקה':'mathematics','גיאולוגיה':'geology',
+'ספורט':'sports','משחק':'games','ספר ילדים':'children\'s book','קומיקס':'comics','כרזה':'poster','פוסטר':'poster','גלויה':'postcard',
+'מכתב':'letter','יומן':'diary','ביוגרפיה':'biography','גנאלוגיה':'genealogy','ימי הביניים':'middle ages','העת העתיקה':'antiquity','עת עתיקה':'antiquity',
+'רנסנס':'renaissance','בארוק':'baroque','מודרני':'modern','מודרניזם':'modernism','עכשווי':'contemporary',
+'מזרח התיכון':'Middle East','ישראל':'Israel','אירופה':'Europe','אסיה':'Asia','אפריקה':'Africa','אמריקה':'America'
+};

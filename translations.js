@@ -38,6 +38,7 @@ Object.assign(MabatI18n.dict,{
   "＋ מושג": "＋ Concept",
   "＋ סוג קשר": "＋ Relation type",
   "המודל של הפרויקט": "Project model",
+  "איתור ואימוץ אונטולוגיות": "Find and adopt ontologies",
   "מקורות וערכות": "Sources and packs",
   "סוגי קשרים": "Relation types",
   "ייבוא אוצר מילים": "Import vocabulary",

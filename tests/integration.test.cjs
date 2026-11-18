@@ -19,7 +19,7 @@ const first=run('P.images[0].id');run(`moveImage('${first}',1)`);assert.equal(ru
 // Switching UI language changes presentation, never canonical research data.
 const beforeLocale=run('JSON.stringify(P)');run("MabatI18n.lang='en'");for(const tab of ['collection','model','annotate','analysis','help']){run(`ui.tab='${tab}';render()`);fs.writeFileSync(path.join(qaDir,`qa-en-${tab}.html`),element('main').innerHTML);}assert.equal(run('JSON.stringify(P)'),beforeLocale);assert.equal(doc.documentElement.dir,'ltr');run("ui.tab='model';ui.model='library';render();groupForm();conceptForm(P.concepts[0].id);annotationForm(P.annotations[0].id);claimForm(P.claims[0].id);relationTypeForm(P.relationTypes[0].id);relationForm()");for(const mode of ['heat','frequency','co','network','table'])run(`ui.tab='analysis';ui.analysis='${mode}';render()`);run("MabatI18n.lang='he'");
 // Existing 1.0 project samples are still accepted without discarding their images.
-const legacy=JSON.parse(fs.readFileSync(path.join(appDir,'examples/teaching-demo.json'),'utf8'));ctx.legacyFixture=legacy;assert.equal(run('C.validate(legacyFixture.project,legacyFixture.assets).length'),0);
+const legacy=(()=>{const w={};new Function('window',fs.readFileSync(path.join(appDir,'examples/teaching-demo.js'),'utf8'))(w);return w.MabatExamples[0].data;})();ctx.legacyFixture=legacy;assert.equal(run('C.validate(legacyFixture.project,legacyFixture.assets).length'),0);
 // Focused information must not destroy an open editing form.
 run('groupForm()');const openForm=element('dialogBody').innerHTML;run("showInfo('bilingual')");assert.equal(element('dialogBody').innerHTML,openForm);assert.equal(element('infoDialog').open,true);element('infoDialog').close();
 // Actual form handler: custom group creation.

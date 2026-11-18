@@ -1,4 +1,4 @@
-# Mabat 1.1 — Data model
+# Mabat 1.3 — Data model
 
 The canonical portable package is a ZIP containing `project.json` and the image files named in `images[].assetPath`. The live application stores `{project, assets}` in IndexedDB (`mabat-sequence-studio-v1`, object store `projects`, key `active`). `assets` maps stable image IDs to data URLs. These assets are separate from undo snapshots of project metadata.
 
@@ -56,7 +56,7 @@ Concept hierarchy is stored in `parents` and is checked for cycles. Other concep
 
 ## Merge
 
-Merge is transactional: validate before replacing the current project. Identical IDs/records deduplicate; changed records fork to new IDs and dependent references are remapped. Pages with identical ID and image data URL are unified, checked-group IDs are unioned after remapping, and conflicting nonblank title/work/page fields retain the main project's values with a report. Independently created image IDs are not deduplicated by filenames or visual similarity. A shared baseline project is recommended for classroom aggregation.
+Merge is transactional: validate before replacing the current project. Identical IDs/records deduplicate; changed records fork to new IDs and dependent references are remapped. Pages with identical ID and image data URL are unified, checked-group IDs are unioned after remapping, and conflicting nonblank title/work/page fields retain the main project's values with a report. Independently created image IDs are not deduplicated by filenames or visual similarity. A shared baseline project keeps IDs aligned when several contributors edit copies.
 
 ## Export conventions
 
@@ -64,9 +64,9 @@ Project JSON is the canonical application format; it is not an OWL ontology or W
 
 Vocabulary JSON exports preserve the concept model, groups, language metadata, relation definitions and typed concept links. Image-level relation instances, review status and application state require full project ZIPs.
 
-## 1.1 bilingual and source extensions
+## Discovery and session-only source state
 
-The portable project discriminator remains `format: "mabat-project", version: 1` for backward-compatible reading of Mabat 1.0. New fields are additive; application release is 1.1.
+The portable project discriminator remains `format: "mabat-project", version: 1` for backward-compatible reading of Mabat 1.0. New fields are additive; application release is 1.3. Online catalogue query state and source previews are temporary session state and are not added to new projects.
 
 Every editable text field may carry a language map under `record.i18n[field]`. For example:
 
@@ -76,7 +76,7 @@ Every editable text field may carry a language map under `record.i18n[field]`. F
 
 `label` and `definition` also expose `labels`/`definitions` maps for vocabulary exchange. Canonical legacy scalar fields remain available (Hebrew when provided, otherwise English). Interface language and bilingual display are separate local UI preferences. Rendering never rewrites canonical research content. Editing Hebrew/English retains additional imported language entries. Region-tag variants such as en-GB are retained; display may fall back by primary language.
 
-`catalogs[]` stores imported source previews with language maps, terms, report, source URL and fetch time when applicable. `sourceConnections[]` stores user-defined HTTPS source profiles. Neither list triggers automatic requests when a project is opened. These lists are included in portable project packages and preserved on merge.
+`catalogs[]` and `sourceConnections[]` are legacy fields accepted when reading older project files. New projects omit both fields; older files have them removed when opened or merged. Source previews and custom URLs remain in memory for the current session only and are omitted from ZIP exports.
 
 Concepts retain `altLabels`, `mappings`, `sourceTermId`, `sourcePack`, source license and URI. Relation types may retain `domain[]`, `range[]`, `ontologyParents[]`, `valueType` (resource, literal or annotation) and bilingual labels/definitions. Literal-valued properties are not offered for ordinary item-to-item links.
 
